@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>
+<head>
+    <title>Predict Sex by Suicide</title>
+</head>
+<form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>Input values:</legend>
+        Year:
+        <input name="year" type="number" required>
+        <br>
+        <br> Population:
+        <input name="population" type="number" required>
+        <br>
+        <br> Suicides_no:
+        <input name="suicides_no" type="number" required>
+        <br>
+        <br> Country_k_v:
+        <input name="country_k_v" type="number" required>
+        <br>
+        <br> Gdp_per_capita:
+        <input name="gdp_per_capita" type="number" required>
+        <br>
+        <br> Min age:
+        <input name="min_age" type="number" required>
+        <br>
+        <br> Max age:
+        <input name="max_age" type="number" required>
+        <br>
+        <br> Generation:
+        <input name="Generation" type="number" required>
+        <br>
+        <br> Gdp_year:
+        <input name="Gdp_year" type="number" required>
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+<br>
+<div class="result" align="center">
+    {% if result %}
+        {% for variable, value in original_input.items() %}
+            <b>{{ variable }}</b> : {{ value }}
+        {% endfor %}
+        <br>
+        <br> Predicted number of bikes in use:
+           <p style="font-size:50px">{{ result }}</p>
+    {% endif %}
+</div>
+</html>
