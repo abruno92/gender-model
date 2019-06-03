@@ -5,5 +5,5 @@ passlib==1.6.5
 requests==2.11.1
 stripe==1.27.1
 Pandas
-Gunicorn
+Gunicorn==19.9.0
 Xgboost
